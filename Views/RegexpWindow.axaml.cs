@@ -24,6 +24,8 @@ namespace tutorial.Views
 
 	    this.FindControl<Button>("ButtonCancel").Click += delegate
 	    {
+		var context = this.DataContext as MainWindowViewModel;
+		context!.PatternStream = context.Pattern;
 		Close();
 	    };
         }

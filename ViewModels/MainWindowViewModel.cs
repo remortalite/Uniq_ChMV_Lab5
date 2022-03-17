@@ -64,5 +64,30 @@ namespace tutorial.ViewModels
 			patternStream = value;
 		}
 	    }
+
+	    string pathIn = "";
+	    string pathOut = "";
+
+	    public string PathIn
+	    {
+		get { return pathIn; }
+
+		set
+		{
+			pathIn = value;
+			TextIn = File.ReadAllText(pathIn);
+		}
+	    }
+
+	    public string PathOut
+	    {
+		get { return pathOut;  }
+
+		set
+		{
+			pathOut = value;
+			File.AppendAllText(pathOut, textOut);
+		}
+	    }
     }
 }
