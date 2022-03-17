@@ -15,19 +15,19 @@ namespace tutorial.Views
             this.AttachDevTools();
 #endif
 
-	    this.FindControl<Button>("ButtonOK").Click += delegate
-	    {
-		var context = this.DataContext as MainWindowViewModel;
-		context!.Pattern = context.PatternStream;
-		Close();
-	    };
+            this.FindControl<Button>("ButtonOK").Click += delegate
+            {
+                var context = this.DataContext as MainWindowViewModel;
+                context !.Pattern = context.PatternStream;
+                Close();
+            };
 
-	    this.FindControl<Button>("ButtonCancel").Click += delegate
-	    {
-		var context = this.DataContext as MainWindowViewModel;
-		context!.PatternStream = context.Pattern;
-		Close();
-	    };
+            this.FindControl<Button>("ButtonCancel").Click += delegate
+            {
+                var context = this.DataContext as MainWindowViewModel;
+                context !.PatternStream = context.Pattern;
+                Close();
+            };
         }
 
         private void InitializeComponent()

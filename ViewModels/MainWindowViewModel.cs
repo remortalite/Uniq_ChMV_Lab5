@@ -9,85 +9,91 @@ namespace tutorial.ViewModels
 {
     public class MainWindowViewModel : ViewModelBase
     {
-	    string textIn = "";
-	    string textOut = "";
-	    string pattern = "";
-	    string patternStream = "";
+        string textIn = "";
+        string textOut = "";
+        string pattern = "";
+        string patternStream = "";
 
-	    private void UpdateValues()
-	    {
-		TextOut = "";
-		foreach (Match match in Regex.Matches(textIn, pattern))
-		{
-			TextOut += $"{match.Value}\n";
-		}
-	    }
+        private void UpdateValues()
+        {
+            TextOut = "";
+            foreach (Match match in Regex.Matches(textIn, pattern))
+            {
+                TextOut += $"{match.Value}\n";
+            }
+        }
 
-	    public string TextIn
-	    {
-		get { return textIn; }
+        public string TextIn
+        {
+            get {
+                return textIn;
+            }
 
-		set
-		{
-			this.RaiseAndSetIfChanged(ref textIn, value);
-			UpdateValues();
-		}
-	    }
+            set {
+                this.RaiseAndSetIfChanged(ref textIn, value);
+                UpdateValues();
+            }
+        }
 
-	    public string TextOut
-	    {
-		get { return textOut; }
+        public string TextOut
+        {
+            get {
+                return textOut;
+            }
 
-		set
-		{
-			this.RaiseAndSetIfChanged(ref textOut, value);
-		}
-	    }
+            set {
+                this.RaiseAndSetIfChanged(ref textOut, value);
+            }
+        }
 
-	    public string Pattern
-	    {
-		get { return pattern; }
+        public string Pattern
+        {
+            get {
+                return pattern;
+            }
 
-		set
-		{
-			pattern = value;
-			UpdateValues();
-		}
-	    }
+            set {
+                pattern = value;
+                UpdateValues();
+            }
+        }
 
-	    public string PatternStream
-	    {
-		get { return patternStream; }
+        public string PatternStream
+        {
+            get {
+                return patternStream;
+            }
 
-		set
-		{
-			patternStream = value;
-		}
-	    }
+            set {
+                patternStream = value;
+            }
+        }
 
-	    string pathIn = "";
-	    string pathOut = "";
+        string pathIn = "";
+        string pathOut = "";
 
-	    public string PathIn
-	    {
-		get { return pathIn; }
+        public string PathIn
+        {
+            get {
+                return pathIn;
+            }
 
-		set
-		{
-			pathIn = value;
-			TextIn = File.ReadAllText(pathIn);
-		}
-	    }
+            set {
+                pathIn = value;
+                TextIn = File.ReadAllText(pathIn);
+            }
+        }
 
-	    public string PathOut
-	    {
-		get { return pathOut;  }
+        public string PathOut
+        {
+            get {
+                return pathOut;
+            }
 
-		set
-		{
-			pathOut = value;
-			File.AppendAllText(pathOut, textOut);
-		}
-	    }
+            set {
+                pathOut = value;
+                File.AppendAllText(pathOut, textOut);
+            }
+        }
     }
 }
