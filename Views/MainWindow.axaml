@@ -1,0 +1,32 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:tutorial.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="tutorial.Views.MainWindow"
+        Icon="/Assets/avalonia-logo.ico"
+		Width="500"
+		Height="600"
+        Title="Lab5 - Regexp">
+
+    <Design.DataContext>
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+
+	<Window.Styles>
+		<StyleInclude Source="/Assets/CustomStyles.axaml" />
+	</Window.Styles>
+
+		<Grid ShowGridLines="False" RowDefinitions="*,40,40" ColumnDefinitions="*,*" Margin="2" >
+			<TextBox Name="InputTextBox" Text="{Binding TextIn}" Watermark="Input text..." Grid.Row="0" Grid.Column="0"/>
+			<TextBox Name="OutputTextBox" Text="{Binding TextOut}" Grid.Row="0" Grid.Column="1" />
+
+			<Button Name="OpenFileButton" Content="Open file" Grid.Row="1" Grid.Column="0" />
+			<Button Name="SaveFileButton" Content="Save File" Grid.Row="1" Grid.Column="1" />
+
+			<Button Name="SetRegexpButton" Click="SetRegexpButton_Click" Content="Set Regexp" Grid.Row="2" Grid.ColumnSpan="2" />
+
+		</Grid>
+
+</Window>
